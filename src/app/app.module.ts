@@ -6,6 +6,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { MenuComponent } from './components/menu/menu.component';
 import { ProductComponent } from './components/product/product.component';
 import { BankAccountPipe } from './pipe/bank-account.pipe';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BankAccountPipe } from './pipe/bank-account.pipe';
     BankAccountPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

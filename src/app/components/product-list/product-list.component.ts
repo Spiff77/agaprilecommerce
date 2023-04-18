@@ -19,7 +19,8 @@ export class ProductListComponent implements OnInit {
   constructor(private ps: ProductService) {}
 
   ngOnInit(): void {
-    this.products = this.ps.findAll()
+    this.ps.findAll()
+      .subscribe(v => this.products = v)
   }
 
   getSelectedProductFromChild(product: Product) {
