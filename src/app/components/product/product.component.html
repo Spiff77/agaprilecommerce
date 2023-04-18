@@ -4,6 +4,6 @@
   <h5>Supplier:</h5>
   <ul>
     <li>{{product.supplier?.companyName}}</li>
-    <li>{{product.supplier?.bankAccountNumber}}</li>
+    <li>{{product.supplier?.bankAccountNumber | bankAccount:12}}</li>
   </ul>
 </div>
