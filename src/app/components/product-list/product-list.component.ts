@@ -1,42 +1,26 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product.model';
 import {ProductComponent} from '../product/product.component';
+import {ProductService} from '../../service/product.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
   selectedProduct: Product | undefined;
   filterStr = ''
   //nocontent = false;
 
-  products: Product[] = [{
-    id: 1,
-    name: 'Frank Zappa',
-    category: 'Album',
-    active: true,
-    description: 'Un cd qu\'il est bien pour l\'écouter',
-    price: 10,
-    promo: .2,
-    supplier: {
-      id: 1,
-      companyName: 'Oloron records',
-      bankAccountNumber: '1222344992FD',
-      ca: 1000000
-    }
-  },
-    {
-      id: 2,
-      name: 'Raoul petite',
-      category: 'Album',
-      active: true,
-      description: 'Un cd qu\'il est bien pour l\'écouter',
-      price: 12,
-      promo: .1
-    }];
+  products: Product[] = []
+
+  constructor(private ps: ProductService) {}
+
+  ngOnInit(): void {
+    this.products = this.ps.findAll()
+  }
 
   getSelectedProductFromChild(product: Product) {
     this.selectedProduct = product
@@ -52,4 +36,5 @@ export class ProductListComponent {
 
     return products
   }
+
 }
