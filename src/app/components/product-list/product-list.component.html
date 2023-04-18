@@ -1,8 +1,8 @@
 <h2>Product List</h2>
-<div [hidden]="!selectedProduct" style="background-color: red; padding: 10px ">
-  <span (click)="selectedProduct = undefined">[x]</span> You have selected {{selectedProduct?.name}} ({{selectedProduct?.category}})
+<div *ngIf="selectedProduct">
+  <span (click)="selectedProduct = undefined">[x]</span> You have selected {{selectedProduct.name}} ({{selectedProduct.category}})
 </div>
 
-
-<app-product (out)="getSelectedProductFromChild($event)" [product]="product1"></app-product>
-<app-product (out)="getSelectedProductFromChild($event)" [product]="product2"></app-product>
+<input type="text" name="filter" (input)="setFilter($event)">
+<div *ngIf="getFilteredProducts().length == 0"> Il n'y a rien a afficher.</div>
+<app-product *ngFor="let p of getFilteredProducts()" (out)="getSelectedProductFromChild($event)" [product]="p"></app-product>

@@ -11,5 +11,4 @@ export class BankAccountPipe implements PipeTransform {
     }
     return value.substring(0,4).padEnd(value.length, '*');
   }
-
 }
