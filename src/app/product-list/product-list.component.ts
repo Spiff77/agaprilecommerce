@@ -18,7 +18,13 @@ export class ProductListComponent {
     active: true,
     description: 'Un cd qu\'il est bien pour l\'écouter',
     price: 10,
-    promo: .2
+    promo: .2,
+    supplier: {
+      id: 1,
+      companyName: "Oloron records",
+      bankAccountNumber: "1222344992FD",
+      ca: 1000000
+    }
   }
 
   product2: Product = {

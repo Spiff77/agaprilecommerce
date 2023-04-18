@@ -1,2 +1,9 @@
-<h3>Titre: {{product?.name}}</h3>
-<p>{{product?.description}}</p>
+<h3>Titre: {{product.name}}</h3>
+<p>{{product.description}}</p>
+<div [hidden]="!product.supplier">
+  <h5>Supplier:</h5>
+  <ul>
+    <li>{{product.supplier?.companyName}}</li>
+    <li>{{product.supplier?.bankAccountNumber}}</li>
+  </ul>
+</div>

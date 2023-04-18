@@ -1,3 +1,5 @@
+import {Supplier} from './supplier.model';
+
 export interface Product{
   id: number,
   name: string,
@@ -5,5 +7,6 @@ export interface Product{
   description: string,
   price: number,
   promo: number,
-  active: boolean
+  active: boolean,
+  supplier?: Supplier
 }

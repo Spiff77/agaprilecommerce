@@ -2,5 +2,7 @@
 <div [hidden]="!selectedProduct" style="background-color: red; padding: 10px ">
   <span (click)="selectedProduct = undefined">[x]</span> You have selected {{selectedProduct?.name}} ({{selectedProduct?.category}})
 </div>
+
+
 <app-product (out)="getSelectedProductFromChild($event)" [product]="product1"></app-product>
 <app-product (out)="getSelectedProductFromChild($event)" [product]="product2"></app-product>
