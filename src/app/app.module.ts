@@ -7,6 +7,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ProductComponent } from './components/product/product.component';
 import { BankAccountPipe } from './pipe/bank-account.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import { SelectedBoxComponent } from './components/selected-box/selected-box.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {HttpClientModule} from '@angular/common/http';
     ProductListComponent,
     MenuComponent,
     ProductComponent,
-    BankAccountPipe
+    BankAccountPipe,
+    SelectedBoxComponent
   ],
   imports: [
     BrowserModule,

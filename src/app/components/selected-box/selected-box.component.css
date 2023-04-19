@@ -1,0 +1,23 @@
+div{
+  font-family: "Courier New";
+  background-color: lightgreen; padding: 10px
+}
+.warning-link{
+  color: red;
+  display:inline-block;
+  margin: 0 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.default-link{
+  color: dodgerblue;
+  text-decoration: underline;
+  display:inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+span{
+  cursor: pointer;
+}
+

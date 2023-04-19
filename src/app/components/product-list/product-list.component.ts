@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product.model';
 import {ProductComponent} from '../product/product.component';
 import {ProductService} from '../../service/product.service';
+import {delay} from 'rxjs';
+import {NotificationService} from '../../service/notification.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,15 +12,19 @@ import {ProductService} from '../../service/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  selectedProduct: Product | undefined;
   filterStr = ''
-  //nocontent = false;
-
   products: Product[] = []
+  selectedProduct: Product | undefined;
 
-  constructor(private ps: ProductService) {}
+  constructor(private ps: ProductService, private ns: NotificationService) {}
 
   ngOnInit(): void {
+    this.initList()
+    this.ns.emitter.subscribe(  () =>
+      this.initList())
+  }
+
+  private initList() {
     this.ps.findAll()
       .subscribe(v => this.products = v)
   }
