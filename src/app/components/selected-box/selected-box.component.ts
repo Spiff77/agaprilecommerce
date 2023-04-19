@@ -39,3 +39,4 @@ export class SelectedBoxComponent implements OnChanges{
   }
 
 }
+

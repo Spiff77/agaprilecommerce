@@ -1,0 +1,8 @@
+<article *ngIf="product">
+  <h2>Detail product</h2>
+  <h3>{{product.name}}</h3>
+  <p>Voici les détails du produit: {{product.id}}</p>
+  <pre>
+    {{product | json}}
+  </pre>
+</article>

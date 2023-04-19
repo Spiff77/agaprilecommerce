@@ -14,6 +14,9 @@ export class ProductService {
   findAll(): Observable<Product[]>{
     return this.http.get<Product[]>(this.url)
   }
+  findOne(id: number): Observable<Product>{
+    return this.http.get<Product>(`${this.url}/${id}`)
+  }
 
   delete(id: number|undefined): Observable<Product[]>{
     return this.http.delete<Product[]>(`${this.url}/${id}`)
