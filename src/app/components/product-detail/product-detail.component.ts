@@ -27,6 +27,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   removeItem() {
-    this.ps.delete(this.product.id).subscribe(() => this.router.navigateByUrl('/products'))
+    this.ps.delete(this.product.id).subscribe(() =>
+      this.router.navigateByUrl('/products')
+    )
   }
 }
