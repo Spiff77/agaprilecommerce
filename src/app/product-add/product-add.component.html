@@ -23,6 +23,7 @@
     <input type="text" name="productpromo" id="productpromo" formControlName="promo"/>
   </div>
   <button>Submit</button>
+  <button type="button" (click)="myFormGroup.reset()">Reset</button>
 </form>
 
 <pre>{{myFormGroup.value | json}}</pre>

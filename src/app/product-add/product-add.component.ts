@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NonNullableFormBuilder} from '@angular/forms';
 import {ProductService} from '../service/product.service';
 import {Router} from '@angular/router';
 
@@ -16,9 +16,9 @@ export class ProductAddComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.myFormGroup = this.fb.group({
+    this.myFormGroup = this.fb.nonNullable.group({
       id: '',
-      name:'',
+      name: 'Hello',
       description: '',
       category: '',
       price: '',
@@ -32,4 +32,12 @@ export class ProductAddComponent implements OnInit{
       this.router.navigateByUrl("/products")
     })
   }
+
+  resetForm(){
+    this.myFormGroup.reset()
+    Object.keys(this.myFormGroup.controls).forEach( k => {
+      this.myFormGroup.get(k)?.setValue('')
+    })
+  }
+
 }
