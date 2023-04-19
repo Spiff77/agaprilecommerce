@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../service/product.service';
 import {Router} from '@angular/router';
 
@@ -12,17 +12,17 @@ export class ProductAddComponent implements OnInit{
 
   myFormGroup!: FormGroup
 
-  constructor(private ps: ProductService, private router: Router) {
+  constructor(private ps: ProductService, private router: Router, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.myFormGroup = new FormGroup<any>({
-      id: new FormControl(''),
-      name: new FormControl(''),
-      description: new FormControl(''),
-      category: new FormControl(''),
-      price: new FormControl(''),
-      promo: new FormControl('')
+    this.myFormGroup = this.fb.group({
+      id: '',
+      name:'',
+      description: '',
+      category: '',
+      price: '',
+      promo: ''
     })
   }
 
