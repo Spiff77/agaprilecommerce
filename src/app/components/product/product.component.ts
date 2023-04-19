@@ -16,6 +16,6 @@ export class ProductComponent {
 
   @HostListener('click')
   sendProductToParent(){
-    this.out.emit(this.product)
+    this.out.emit(this.product);
   }
 }
