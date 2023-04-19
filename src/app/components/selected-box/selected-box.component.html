@@ -1,5 +1,5 @@
 <div *ngIf="selectedProduct">
-  <span (click)="selectedProduct = undefined">[x]</span> You have selected {{selectedProduct.name}} ({{selectedProduct.category}})
+  <span (click)="closeBox()">[x]</span> You have selected {{selectedProduct.name}} ({{selectedProduct.category}})
   <span class="warning-link" (click)="showConfirmDelete = true">delete</span>
   <span *ngIf="showConfirmDelete">Are you sure?
     <span class="warning-link" (click)="deleteItem()">Yes</span>
