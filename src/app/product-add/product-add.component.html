@@ -1,0 +1,28 @@
+<h3>Ajouter un produit</h3>
+
+<form [formGroup]="myFormGroup" (ngSubmit)="submit()">
+
+  <div>
+    <label for="productname">Nom du produit</label>
+    <input type="text" name="productname" id="productname" formControlName="name"/>
+  </div>
+  <div>
+    <label for="productcategory">Catégorie du produit</label>
+    <input type="text" name="productcategory" id="productcategory" formControlName="category"/>
+  </div>
+  <div>
+    <label for="productdescription">Descriptio du produit</label>
+    <input type="text" name="productdescription" id="productdescription" formControlName="description"/>
+  </div>
+  <div>
+    <label for="productprix">Prix du produit</label>
+    <input type="text" name="productprix" id="productprix" formControlName="price"/>
+  </div>
+  <div>
+    <label for="productpromo">Promotion du produit</label>
+    <input type="text" name="productpromo" id="productpromo" formControlName="promo"/>
+  </div>
+  <button>Submit</button>
+</form>
+
+<pre>{{myFormGroup.value | json}}</pre>

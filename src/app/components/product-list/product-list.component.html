@@ -3,3 +3,4 @@
 <input type="text" name="filter" (input)="setFilter($event)">
 <div *ngIf="getFilteredProducts().length == 0"> Il n'y a rien a afficher.</div>
 <app-product *ngFor="let p of getFilteredProducts()" (out)="getSelectedProductFromChild($event)" [product]="p"></app-product>
+<button routerLink="/products/add">Add product</button>

@@ -17,9 +17,11 @@ export class ProductService {
   findOne(id: number): Observable<Product>{
     return this.http.get<Product>(`${this.url}/${id}`)
   }
-
   delete(id: number|undefined): Observable<Product[]>{
     return this.http.delete<Product[]>(`${this.url}/${id}`)
+  }
+  add(product: Product): Observable<Product>{
+    return this.http.post<Product>(`${this.url}`, product)
   }
 
 }
