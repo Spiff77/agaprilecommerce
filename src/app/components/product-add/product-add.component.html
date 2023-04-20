@@ -1,6 +1,12 @@
 <h3>Ajouter un produit</h3>
 
-<form [formGroup]="myFormGroup" (ngSubmit)="submit()">
+<ul *ngIf="!myForm.valid && formSubmitted">
+  <li *ngIf="myForm.controls['name']?.errors?.['required']">Name is required</li>
+  <li *ngIf="myForm.get('price')?.errors?.['min']">Price must be greater than 0</li>
+  <li *ngIf="myForm.get('price')?.errors?.['max']">Price must be lower than 1000</li>
+</ul>
+
+<form [formGroup]="myForm" (ngSubmit)="submit()">
 
   <div>
     <label for="productname">Nom du produit</label>
@@ -16,14 +22,14 @@
   </div>
   <div>
     <label for="productprix">Prix du produit</label>
-    <input type="text" name="productprix" id="productprix" formControlName="price"/>
+    <input type="number" name="productprix" id="productprix" formControlName="price"/>
   </div>
   <div>
     <label for="productpromo">Promotion du produit</label>
     <input type="text" name="productpromo" id="productpromo" formControlName="promo"/>
   </div>
   <button>Submit</button>
-  <button type="button" (click)="myFormGroup.reset()">Reset</button>
+  <button type="button" (click)="myForm.reset()">Reset</button>
 </form>
 
-<pre>{{myFormGroup.value | json}}</pre>
+<pre>{{myForm.value | json}}</pre>

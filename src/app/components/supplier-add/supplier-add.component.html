@@ -1,0 +1,28 @@
+<h3>Ajouter un supplier</h3>
+
+<ul *ngIf="!myForm.valid && submitted">
+  <li *ngIf="myForm.controls['companyName']?.errors?.['required']">Company name is required</li>
+  <li *ngIf="caInput.errors?.['required']">Price is required</li>
+  <li *ngIf="caInput.errors?.['min']">Price must be greater than 0</li>
+  <li *ngIf="caInput.errors?.['max']">Price must be lower than 1000</li>
+</ul>
+
+<form (ngSubmit)="submit(myForm)" #myForm="ngForm">
+
+  <div>
+    <label for="companyName">Nom de la company</label>
+    <input [(ngModel)]="supplier.companyName" type="text" name="companyName" id="companyName" required/>
+  </div>
+  <div>
+    <label for="bankAccountNumber">Bank account number</label>
+    <input [(ngModel)]="supplier.bankAccountNumber" type="text" name="bankAccountNumber" id="bankAccountNumber" />
+  </div>
+  <div>
+    <label for="ca">CA</label>
+    <input [(ngModel)]="supplier.ca" type="number" name="ca" id="ca" required min="1" max="1000" #caInput="ngModel"/>
+  </div>
+  <button>Submit</button>
+  <button type="button" (click)="myForm.reset()">Reset</button>
+</form>
+
+<pre>{{myForm.value | json}}</pre>

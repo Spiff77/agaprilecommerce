@@ -10,10 +10,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { SelectedBoxComponent } from './components/selected-box/selected-box.component';
 import {RouterModule, Routes} from '@angular/router';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { ProductAddComponent } from './product-add/product-add.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SupplierAddComponent } from './components/supplier-add/supplier-add.component';
 
 const routes: Routes=[
+  {path: "suppliers/add", component: SupplierAddComponent},
   {path: "products/add", component: ProductAddComponent},
   {path: "products/:id", component: ProductDetailComponent},
   {path: "products", component: ProductListComponent},
@@ -28,11 +30,13 @@ const routes: Routes=[
     BankAccountPipe,
     SelectedBoxComponent,
     ProductDetailComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    SupplierAddComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
