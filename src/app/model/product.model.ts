@@ -8,5 +8,6 @@ export interface Product{
   price: number,
   promo: number,
   active: boolean,
-  supplier?: Supplier
+  supplier?: Supplier,
+  colors?: string[]
 }

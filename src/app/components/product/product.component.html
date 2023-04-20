@@ -1,7 +1,7 @@
 <div mat-ripple>
 <mat-card>
   <mat-card-header>
-    <mat-card-title> {{product.name}}</mat-card-title>
+    <mat-card-title> {{product.name}} <mat-icon *ngFor="let c of product.colors" fontIcon="palette" [style.background-color]="c" [style.color]="'#ffffff'"></mat-icon></mat-card-title>
   </mat-card-header>
   <mat-card-content>
   <p>{{product.description}}</p>

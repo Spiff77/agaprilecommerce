@@ -36,6 +36,13 @@
       <option *ngFor="let s of suppliers" [value]="s.id">{{s.companyName}}</option>
     </select>
   </div>
+  <fieldset formArrayName="colors">
+    <legend>Color <mat-icon (click)="addColor()">add</mat-icon></legend>
+    <div *ngFor="let item of getColorsFormArray().controls; let i=index">
+      <label [for]="'color'+i"><mat-icon (click)="removeColor(i)">remove</mat-icon>Color {{i+1}}</label>
+      <input type="color" [formControlName]="i">
+    </div>
+  </fieldset>
   <button type="submit">Submit</button>
   <button type="button" (click)="myForm.reset()">Reset</button>
 </form>

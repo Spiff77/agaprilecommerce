@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
 import {SupplierService} from '../../service/supplier.service';
@@ -30,6 +30,7 @@ export class ProductAddComponent implements OnInit{
       category: '',
       price: [0,[Validators.min(1), Validators.max(1000)]],
       promo: '',
+      colors: this.fb.array(['', '']),
       supplier: this.fb.group({
         id: ['', Validators.required]
       })
@@ -57,4 +58,15 @@ export class ProductAddComponent implements OnInit{
       })
   }
 
+  getColorsFormArray(): FormArray{
+    return this.myForm.get('colors') as FormArray
+  }
+
+  addColor() {
+    this.getColorsFormArray().push(this.fb.control(''))
+  }
+
+  removeColor(index: number) {
+    this.getColorsFormArray().removeAt(index)
+  }
 }
