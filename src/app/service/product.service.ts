@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class ProductService {
 
-  private url = 'http://localhost:8080/learn/api/products';
+  private url = 'http://localhost:8086/learn/api/products';
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Product[]>{

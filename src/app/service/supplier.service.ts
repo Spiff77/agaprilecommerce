@@ -8,7 +8,7 @@ import {Supplier} from '../model/supplier.model';
 })
 export class SupplierService {
 
-  private url = 'http://localhost:8080/learn/api/suppliers';
+  private url = 'http://localhost:8086/learn/api/suppliers';
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Supplier[]>{

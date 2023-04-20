@@ -4,6 +4,7 @@
   <li *ngIf="myForm.controls['name']?.errors?.['required']">Name is required</li>
   <li *ngIf="myForm.get('price')?.errors?.['min']">Price must be greater than 0</li>
   <li *ngIf="myForm.get('price')?.errors?.['max']">Price must be lower than 1000</li>
+  <li *ngIf="myForm.get('supplier.id')?.errors?.['required']">Supplier is required</li>
 </ul>
 
 <form [formGroup]="myForm" (ngSubmit)="submit()">
@@ -27,6 +28,13 @@
   <div>
     <label for="productpromo">Promotion du produit</label>
     <input type="text" name="productpromo" id="productpromo" formControlName="promo"/>
+  </div>
+  <div formGroupName="supplier">
+    <label for="productSupplier">Supplier</label>
+    <select formControlName="id" id="productSupplier">
+      <option value="">---Make a choice ---</option>
+      <option *ngFor="let s of suppliers" [value]="s.id">{{s.companyName}}</option>
+    </select>
   </div>
   <button type="submit">Submit</button>
   <button type="button" (click)="myForm.reset()">Reset</button>

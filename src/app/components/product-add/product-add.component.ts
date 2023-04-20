@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, Validators} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
+import {SupplierService} from '../../service/supplier.service';
+import {Supplier} from '../../model/supplier.model';
 
 @Component({
   selector: 'app-product-add',
@@ -12,8 +14,12 @@ export class ProductAddComponent implements OnInit{
 
   myForm!: FormGroup
   formSubmitted = false;
+  public suppliers: Supplier[] = [];
 
-  constructor(private ps: ProductService, private router: Router, private fb: FormBuilder) {
+  constructor(private ps: ProductService,
+              private sups: SupplierService,
+              private router: Router,
+              private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -23,7 +29,14 @@ export class ProductAddComponent implements OnInit{
       description: '',
       category: '',
       price: [0,[Validators.min(1), Validators.max(1000)]],
-      promo: ''
+      promo: '',
+      supplier: this.fb.group({
+        id: ['', Validators.required]
+      })
+    })
+    this.sups.findAll().subscribe( v => {
+      this.suppliers = v
+      this.myForm.get('supplier.id')?.setValue(this.suppliers[0].id)
     })
   }
 
