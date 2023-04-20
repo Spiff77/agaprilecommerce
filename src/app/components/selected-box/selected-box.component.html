@@ -1,7 +1,13 @@
-<div *ngIf="selectedProduct">
-  <span (click)="closeBox()">[x]</span> You have selected {{selectedProduct.name}} ({{selectedProduct.category}})
-  <span class="warning-link" (click)="showConfirmDelete = true">delete</span>
+<mat-card *ngIf="selectedProduct">
+  <mat-card-content>
+    <div class="example-button-container">
+      <button (click)="closeBox()" mat-mini-fab disabled aria-label="Example icon button with a home icon">
+        <mat-icon>task_alt</mat-icon>
+      </button>
+      You have selected {{selectedProduct.name}} ({{selectedProduct.category}}) <span class="warning-link" (click)="showConfirmDelete = true">delete</span>
+    </div>
   <span *ngIf="showConfirmDelete">Are you sure?
     <span class="warning-link" (click)="deleteItem()">Yes</span>
     <span class="default-link" (click)="showConfirmDelete = false">No</span></span>
-</div>
+  </mat-card-content>
+</mat-card>

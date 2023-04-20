@@ -13,6 +13,14 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SupplierAddComponent } from './components/supplier-add/supplier-add.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatRippleModule} from '@angular/material/core';
 
 const routes: Routes=[
   {path: "suppliers/add", component: SupplierAddComponent},
@@ -38,7 +46,15 @@ const routes: Routes=[
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

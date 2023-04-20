@@ -1,6 +1,12 @@
-<h2>Product List</h2>
+<mat-card-title>
+  <h2>Product List</h2>
+</mat-card-title>
 <app-selected-box (onCloseBox)="selectedProduct = undefined" [selectedProduct]="selectedProduct"></app-selected-box>
-<input type="text" name="filter" (input)="setFilter($event)">
+<mat-form-field appearance="fill" (input)="setFilter($event)">
+  <mat-label>Search for a product</mat-label>
+  <input matInput placeholder="Placeholder">
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
 <div *ngIf="getFilteredProducts().length == 0"> Il n'y a rien a afficher.</div>
-<app-product *ngFor="let p of getFilteredProducts()" (out)="getSelectedProductFromChild($event)" [product]="p"></app-product>
-<button routerLink="/products/add">Add product</button>
+  <app-product  *ngFor="let p of getFilteredProducts()" (out)="getSelectedProductFromChild($event)" [product]="p"></app-product>
+<button mat-button color="primary" routerLink="/products/add">Add product</button>
